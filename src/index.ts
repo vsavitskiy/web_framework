@@ -1,12 +1,9 @@
 import './api';
-import { User } from './models/User';
+import { Collection } from './Collection';
+import { User, UserData } from './models/User';
 
-const test = async () => {
-  const user = User.create({ name: 'Vlad', age: 33 });
-  await user.save();
-  await user.set({ age: 30 });
-  console.log(user.getAll());
-  await user.save();
-};
+const collection = new Collection<User, UserData>('/users', User.create);
 
-test();
+collection.on('change', () => console.log(collection));
+
+collection.fetch();
