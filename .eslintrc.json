@@ -8,10 +8,22 @@
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts"]
+      }
+    }
+  },
   "rules": {
     "prettier/prettier": "error",
     "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error"
+    "@typescript-eslint/no-explicit-any": "error",
+    "no-useless-constructor": "off",
+    "import/prefer-default-export": "off",
+    "no-empty-function": "off",
+    "import/extensions": "off",
+    "class-methods-use-this": "off"
   }
 }
