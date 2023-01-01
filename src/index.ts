@@ -1,9 +1,14 @@
 import './api';
-import { Collection } from './Collection';
-import { User, UserData } from './models/User';
+import { UserForm } from './views/UserForm';
+import { User } from './models/User';
 
-const collection = new Collection<User, UserData>('/users', User.create);
+const rootElement = document.getElementById('root');
+const user = User.create({ id: 1 });
+user.fetch().then(() => {
+  if (!rootElement) {
+    return;
+  }
 
-collection.on('change', () => console.log(collection));
-
-collection.fetch();
+  const userForm = new UserForm(rootElement, user);
+  userForm.render();
+});

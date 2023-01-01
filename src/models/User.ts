@@ -13,4 +13,9 @@ export class User extends Model<UserData> {
   static create(userData: UserData): User {
     return new User(new Attributes<UserData>(userData), new Eventing(), new ApiSync<UserData>('/users'));
   }
+
+  setRandomAge(): void {
+    const age = Math.floor(Math.random() * 100) + 1;
+    this.set({ age });
+  }
 }
