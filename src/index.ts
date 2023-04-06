@@ -1,14 +1,21 @@
 import './api';
-import { UserForm } from './views/UserForm';
-import { User } from './models/User';
+import { UserList } from './views/UserList';
+import { User, UserData } from './models/User';
+import { Collection } from './Collection';
 
-const rootElement = document.getElementById('root');
-const user = User.create({ id: 1 });
-user.fetch().then(() => {
-  if (!rootElement) {
-    return;
+const users = new Collection(
+  'http://localhost:3000/users',
+  (json: UserData) => {
+    return User.create(json);
+  },
+);
+
+users.on('change', () => {
+  const rootElement = document.getElementById('root');
+
+  if (rootElement) {
+    new UserList(rootElement, users).render();
   }
-
-  const userForm = new UserForm(rootElement, user);
-  userForm.render();
 });
+
+users.fetch();

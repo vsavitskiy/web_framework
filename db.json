@@ -1,29 +1,19 @@
 {
   "users": [
     {
-      "name": "Vlad",
-      "age": 30,
-      "id": 1
+      "id": 1,
+      "name": "1221efwsf",
+      "age": 10
     },
     {
-      "name": "Vlad1",
-      "age": 30,
-      "id": 2
+      "id": 2,
+      "name": "gr3wg3",
+      "age": 20
     },
     {
-      "name": "Vlad2",
-      "age": 30,
-      "id": 3
-    },
-    {
-      "name": "Vlad3",
-      "age": 30,
-      "id": 4
-    },
-    {
-      "name": "Vlad4",
-      "age": 30,
-      "id": 5
+      "id": 3,
+      "name": "adfaf",
+      "age": 40
     }
   ]
 }

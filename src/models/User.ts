@@ -11,7 +11,11 @@ export interface UserData {
 
 export class User extends Model<UserData> {
   static create(userData: UserData): User {
-    return new User(new Attributes<UserData>(userData), new Eventing(), new ApiSync<UserData>('/users'));
+    return new User(
+      new Attributes<UserData>(userData),
+      new Eventing(),
+      new ApiSync<UserData>('/users'),
+    );
   }
 
   setRandomAge(): void {
