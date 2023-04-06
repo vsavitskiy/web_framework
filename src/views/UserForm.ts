@@ -2,7 +2,7 @@ import { View } from '../View';
 import { User, UserData } from '../models/User';
 
 export class UserForm extends View<User, UserData> {
-  eventsMap(): { [key: string]: (e: Event) => void } {
+  eventsMap(): { [key: string]: () => void } {
     return {
       'click:#nameButton': this.onNameButtonClick,
       'click:#ageButton': this.onAgeButtonClick,
